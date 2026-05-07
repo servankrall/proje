@@ -1,0 +1,18 @@
+- name: TrafficBot Pro
+  uses: Ramesh0708/trafficbot-pro@v1.0.0
+name: TrafficBot Pro
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # 8:30 AM IST
+  workflow_dispatch:
+
+jobs:
+  traffic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run TrafficBot Pro
+        uses: Ramesh0708/trafficbot-pro@v1
+        with:
+          city: "Pune"   # Change to any city (e.g., Mumbai, Bangalore, New York)
+          webhook: ${{ secrets.TEAMS_WEBHOOK_URL }}
